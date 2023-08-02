@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+$max-width: 768px;
+
+@media (prefers-color-scheme: dark) {
+}
+
+html {
+  &.scrollable {
+    -webkit-font-smoothing: antialiased;
+    scroll-snap-type: y mandatory;  
+  }
+}
+
+body {
+  max-width: 100vw;
+  // min-height: 100vh;
+  overflow-x: hidden;
+
+  background: #ffd42d;
+  color: #333;
+}
+
+.container {
+  max-width: clamp(300px, 90vw, 1240px);
+  margin: 0 auto;
+}
+
+.privacy-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #5460fe;
+  z-index: 2;
+}
+
+.burger-container {
+  @apply w-10 h-6 relative;
+
+  &:hover {
+    .secondLine,
+    .thirdLine {
+      @apply w-full;
+    }
+  }
+
+  &.active {
+    .firstLine {
+      @apply rotate-[225deg] translate-y-3;
+    }
+    .thirdLine {
+      @apply -rotate-45 -translate-y-3 w-full;
+    }
+    .secondLine {
+      @apply translate-x-full opacity-0;
+    }
+  }
+
+  .firstLine,
+  .secondLine,
+  .thirdLine {
+    @apply h-1 rounded-lg w-full absolute right-0;
+    transition: all 0.3s ease-in;
+  }
+  .firstLine {
+    @apply top-0;
+  }
+  .secondLine {
+    @apply top-1/2 w-4/6;
+  }
+  .thirdLine {
+    @apply top-full w-1/4;
+  }
+}
+
+
+.header {
+  @apply text-white text-lg fixed z-50 top-0 left-0 w-screen transition-all;
+    backdrop-filter: blur(4px);
+
+    @media (max-width: $max-width) {
+      @apply bg-white text-dark h-screen;
+      left: -200%;
+    }
+    &__body {
+      @apply gap-5 py-5 w-full justify-between container;
+  }
+
+  .links {
+    @apply gap-3;
+    @media (max-width: $max-width) {
+      @apply flex-col;
+    }
+  }
+  .link {
+    @apply relative;
+    span {
+      @apply transition-all absolute bottom-0 left-1/2 w-0 h-[2px] bg-white;
+    }
+    &.active,
+    &:hover {
+      span {
+        @apply left-0 w-full;
+      }
+    }
+  }
+}
+
+.headerWrapper {
+  &__burger {
+    @apply pointer-events-none opacity-0 text-white fixed z-[51] top-4 right-4 transition-all cursor-pointer;
+    @media (max-width: $max-width) {
+      @apply text-dark opacity-100;
+      pointer-events: all;
+    }
+
+  }
+
+  &.active {
+    .header {
+      @apply left-0;
+      &__body {
+        @media (max-width: $max-width) {
+          @apply flex-col;
+        }
+      }
+    }
+    .headerWrapper__burger {
+      @apply text-dark;
+    }
+  }
+}
+
+
+
+.input-container-1 {
+  $borderSize: 1.5px;
+  $borderRadius: 12px;
+  $borderColor: #fff;
+  position: relative;
+  width: 300px;
+  .input {
+    width: 100%;
+    outline: none;
+    border: $borderSize solid #333;
+    border-right: 0px solid #333;
+    border-radius: $borderRadius 0px 0px $borderRadius;
+    padding: 7px 10px;
+    &:focus {
+      border-color: $borderColor;
+    }
+  }
+
+
+  .number {
+    color: #ccc;
+    background-color: $borderColor;
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    border-top-right-radius: $borderRadius;
+    border-bottom-right-radius: $borderRadius;
+    border: $borderSize solid #333;
+    padding: 7px 10px;
+    font-weight: 800;
+    
+    .span {
+      display: block;
+    }
+  }  
+}
+

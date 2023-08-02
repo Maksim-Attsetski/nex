@@ -1,0 +1,45 @@
+{
+  "name": "nextjs-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.65.5",
+    "@react-three/fiber": "^8.12.2",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@splinetool/loader": "^0.9.304",
+    "@splinetool/r3f-spline": "^1.0.2",
+    "@splinetool/react-spline": "^2.2.6",
+    "@splinetool/runtime": "^0.9.304",
+    "@types/node": "18.16.0",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0",
+    "@zeit/next-sass": "^1.0.1",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.39.0",
+    "eslint-config-next": "13.3.1",
+    "framer-motion": "^10.12.4",
+    "framer-motion-3d": "^10.12.4",
+    "next": "13.3.1",
+    "octokit": "^2.0.14",
+    "popmotion": "^11.0.5",
+    "postcss": "8.4.23",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "^8.0.5",
+    "react-three": "^0.9.7",
+    "sass-loader": "^13.2.2",
+    "tailwindcss": "3.3.1",
+    "three": "^0.151.3",
+    "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@types/three": "^0.150.2",
+    "sass": "^1.62.1"
+  }
+}
